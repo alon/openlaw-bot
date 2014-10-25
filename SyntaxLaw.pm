@@ -3,6 +3,14 @@
 
 package SyntaxLaw;
 
+BEGIN {
+	use Exporter;
+	our @ISA = qw(Exporter);
+
+	our $VERSION = 0.0;
+	our @EXPORT = qw(convert);
+}
+
 use warnings;
 no warnings "all";
 use v5.14;
@@ -115,8 +123,6 @@ sub convert() {
 unless (caller) {
     main();
 }
-
-1;
 
 sub parse_title {
 	my $_ = shift;
@@ -969,3 +975,5 @@ sub findExtRef {
 #	print STDERR "$prev -> $_\n";
 	return $_;
 }
+
+1;
