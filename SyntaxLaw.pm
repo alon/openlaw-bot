@@ -120,9 +120,7 @@ sub convert {
     return $_;
 }
 
-unless (caller) {
-    main();
-}
+__PACKAGE__->main() unless (caller);
 
 sub parse_title {
 	my $_ = shift;
