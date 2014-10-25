@@ -7,3 +7,4 @@ print("StandardImplemented explicit: ${AkomaNtoso::StandardImplemented}\n");
 
 my $a = new AkomaNtoso;
 dd $a;
+$a->set_title("well");

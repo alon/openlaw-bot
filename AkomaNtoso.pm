@@ -32,6 +32,14 @@ sub new {
     return bless({}, $class);
 }
 
+sub __FUNC__ { (caller 1)[3] }
+
+sub set_title {
+    my $self = shift;
+    my $title = shift;
+    print STDERR __FUNC__, ": $title\n";
+}
+
 sub main {
     print "AkomaNtoso doesn't do anything when called. TODO: Testing\n";
 }
