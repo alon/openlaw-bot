@@ -45,7 +45,7 @@ sub main() {
     exit;
 }
 
-sub convert() {
+sub convert {
     my $_ = shift;
     binmode STDOUT, "utf8";
     binmode STDERR, "utf8";
