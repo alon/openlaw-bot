@@ -15,6 +15,10 @@ use utf8;
 use XML::DOM;
 use Data::Dump;
 
+# use XML::Generator::DOM;
+# Still haven't figured out how to use XML::Generator::DOM to create snippets, getting:
+# XML::DOM::DOMException(Code=4, Name=WRONG_DOCUMENT_ERR, Message=nodes belong to different documents)
+
 BEGIN {
     use Exporter;
     our @ISA = qw(Exporter);
@@ -33,9 +37,13 @@ sub new {
     my $thedoc = new XML::DOM::Document;
     my $root = $thedoc->createElement('akomantoso');
     my $meta = $thedoc->createElement('meta');
+
     $root->appendChild($meta);
     $thedoc->appendChild($root);
-    return bless({doc => $thedoc}, $class);
+    return bless({
+        doc => $thedoc,
+        meta => $meta,
+    }, $class);
 }
 
 sub __FUNC__ { (caller 1)[3] }
