@@ -19,7 +19,7 @@ BEGIN {
     our @ISA = qw(Exporter);
 
     our $VERSION = 0.0;
-    our @EXPORT = qw($StandardImplemented, new);
+    our @EXPORT = qw($StandardImplemented);
 }
 
 our $StandardImplemented = "3.0";
