@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
+# vim: shiftwidth=4 tabstop=4 noexpandtab
 
 package SyntaxLaw;
 
