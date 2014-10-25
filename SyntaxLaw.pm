@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+use warnings;
+no warnings "all";
 use v5.14;
 use strict;
 no strict 'refs';
