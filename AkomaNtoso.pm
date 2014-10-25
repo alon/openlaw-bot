@@ -32,6 +32,8 @@ sub new {
     my $class = shift;
     my $thedoc = new XML::DOM::Document;
     my $root = $thedoc->createElement('akomantoso');
+    my $meta = $thedoc->createElement('meta');
+    $root->appendChild($meta);
     $thedoc->appendChild($root);
     return bless({doc => $thedoc}, $class);
 }
@@ -42,6 +44,11 @@ sub doc {
     # Debugging helper
     my $self = shift;
     return $self->{'doc'};
+}
+
+sub toString {
+    my $self = shift;
+    return $self->doc->toString;
 }
 
 sub set_title {

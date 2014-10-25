@@ -10,5 +10,5 @@ my $a = new AkomaNtoso();
 $a->set_title("well");
 my $title = $a->get_title();
 print("title: $title\n");
-my $doc = $a->doc->toString;
-print("doc:   $doc\n");
+my $asString = $a->toString;
+print("doc:   $asString\n");
