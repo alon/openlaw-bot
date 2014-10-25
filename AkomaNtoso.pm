@@ -30,10 +30,19 @@ __PACKAGE__->main() unless (caller);
 
 sub new {
     my $class = shift;
-    return bless({}, $class);
+    my $thedoc = new XML::DOM::Document;
+    my $root = $thedoc->createElement('akomantoso');
+    $thedoc->appendChild($root);
+    return bless({doc => $thedoc}, $class);
 }
 
 sub __FUNC__ { (caller 1)[3] }
+
+sub doc {
+    # Debugging helper
+    my $self = shift;
+    return $self->{'doc'};
+}
 
 sub set_title {
     my $self = shift;
