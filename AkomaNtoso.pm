@@ -37,7 +37,12 @@ sub __FUNC__ { (caller 1)[3] }
 sub set_title {
     my $self = shift;
     my $title = shift;
-    print STDERR __FUNC__, ": $title\n";
+    $self->{'title'} = $title;
+}
+
+sub get_title {
+    my $self = shift;
+    return $self->{'title'}
 }
 
 sub main {
