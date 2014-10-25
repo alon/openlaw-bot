@@ -13,6 +13,7 @@ use English;
 use utf8;
 
 use XML::DOM;
+use Data::Dump;
 
 BEGIN {
     use Exporter;
