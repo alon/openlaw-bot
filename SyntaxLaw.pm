@@ -23,6 +23,8 @@ use Data::Dumper;
 
 use constant { true => 1, false => 0 };
 
+use AkomaNtoso;
+
 our $extref_sig = '\bו?[בהלמש]?(חוק|פקוד[הת]|תקנות|צו|החלטה|תקנון|הוראו?ת|הודעה|כללים?|חוק[הת]|אמנ[הת]|דברי?[ -]ה?מלך)\b';
 our $type_sig = 'חלק|פרק|סימן|לוח(ות)? השוואה|נספח|תוספת|טופס|לוח|טבל[הא]';
 
@@ -48,6 +50,8 @@ sub convert {
 	my $_ = shift;
 	binmode STDOUT, "utf8";
 	binmode STDERR, "utf8";
+
+	my $akoma = new AkomaNtoso();
 
 	# General cleanup
 	s/<!--.*?-->//sg;  # Remove comments
@@ -123,13 +127,14 @@ __PACKAGE__->main() unless (caller);
 
 sub parse_title {
 	my $_ = shift;
+	my $ret = $_;
 	my ($fix, $str);
 	$_ = unquote($_);
 	($_, $fix) = get_fixstr($_);
 	$str = "<שם>\n";
 	$str .= "<תיקון $fix>\n" if ($fix);
 	$str .= "$_\n";
-	return $str;
+	return $ret;
 }
 
 sub parse_section {
